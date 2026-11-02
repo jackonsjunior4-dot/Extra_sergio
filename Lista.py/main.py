@@ -116,6 +116,11 @@ componentes = [
         'st.write("Busca binária, busca sequencial e intercalação.")'
     ),
     (
+        "st.markdown()",
+        "Exibe texto formatado em Markdown, usado aqui para mostrar o nome de cada componente em negrito.",
+        'st.markdown(f"**`{nome}`**: {descricao}")'
+    ),
+    (
         "st.subheader()",
         "Títulos das seções.",
         'st.subheader("Inserir número")'
