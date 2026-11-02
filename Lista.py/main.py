@@ -12,13 +12,7 @@ lista = st.session_state.lista
 st.title("Lista Ordenada e Cauda Não Ordenada")
 st.write("Busca binária, busca sequencial e intercalação.")
 
-col1, col2 = st.columns(2)
-
-with col1:
-    st.metric("Números na região ordenada", len(lista.regiao_ordenada))
-
-with col2:
-    st.metric("Números na cauda", f"{len(lista.cauda)} / 10")
+metricas = st.container()
 
 st.divider()
 
@@ -41,6 +35,15 @@ if inserir:
             st.info("A cauda foi ordenada e intercalada à região principal.")
     else:
         st.error(mensagem)
+
+with metricas:
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric("Números na região ordenada", len(lista.regiao_ordenada))
+
+    with col2:
+        st.metric("Números na cauda", f"{len(lista.cauda)} / 10")
 
 st.divider()
 
@@ -125,6 +128,14 @@ componentes = [
         "st.columns()",
         "Organiza informações lado a lado.",
         'col1, col2 = st.columns(2)'
+    ),
+    (
+        "st.container()",
+        "Reserva um espaço no topo da página, preenchido depois que a inserção é processada, para as métricas não ficarem desatualizadas.",
+        '''metricas = st.container()
+...
+with metricas:
+    col1, col2 = st.columns(2)'''
     ),
     (
         "st.metric()",
