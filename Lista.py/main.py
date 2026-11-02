@@ -66,11 +66,12 @@ if pesquisar:
     else:
         st.warning("Número não encontrado.")
 
-    c1, c2, c3 = st.columns(3)
+    c1, c2, c3, c4 = st.columns(4)
 
     c1.metric("Iterações binárias", resultado["binaria"])
     c2.metric("Iterações sequenciais", resultado["sequencial"])
     c3.metric("Total de iterações", resultado["total"])
+    c4.metric("Local", resultado["local"])
 
 st.divider()
 
@@ -139,8 +140,9 @@ with metricas:
     ),
     (
         "st.metric()",
-        "Mostra quantidades e iterações em destaque.",
-        'st.metric("Total de iterações", resultado["total"])'
+        "Mostra quantidades, iterações e o local da busca em destaque.",
+        '''st.metric("Total de iterações", resultado["total"])
+st.metric("Local", resultado["local"])'''
     ),
     (
         "st.form()",
